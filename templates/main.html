@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/htmx.org@2.0.1"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{.id}}</title>
+  </head>
+  <body>
+    <h1>{{.id}}</h1>
+    {{block "content" .}} {{end}}
+  </body>
+</html>
