@@ -10,19 +10,9 @@ import (
 
 var DB *gorm.DB
 
-func CreateMessageBox(message string) {
-	DB.Create(&MessageBox{Message: message})
+func CreateMessageBox(message string, box int64) {
+	DB.Create(&MessageBox{Message: message, Box: box})
 }
-
-func GetMessageBoxes() []MessageBox {
-	var messages []MessageBox
-	DB.Find(&messages)
-	for _, message := range messages {
-		fmt.Println(message.Message)
-	}
-	return messages
-}
-
 func Connect() {
 	dbUser := os.Getenv("USERNAME")
 	dbPass := os.Getenv("PASSWORD")

@@ -8,10 +8,7 @@ import (
 )
 
 func homePage(c *gin.Context) {
-	c.HTML(200, "pageCount.html", gin.H{
-		"title": "Home Page",
-		"id":    c.Param("id"),
-	})
+	c.HTML(200, "home.html", gin.H{})
 }
 
 func main() {
@@ -22,6 +19,7 @@ func main() {
 	databse.Connect()
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*")
+	router.Static("/static", "./static")
 	router.GET("/index", homePage)
 	router.Run("localhost:8090")
 }

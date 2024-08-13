@@ -5,4 +5,5 @@ import "gorm.io/gorm"
 type MessageBox struct {
 	gorm.Model
 	Message string
+	Box     int64
 }
