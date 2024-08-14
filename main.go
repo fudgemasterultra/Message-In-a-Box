@@ -8,7 +8,7 @@ import (
 )
 
 func homePage(c *gin.Context) {
-	c.HTML(200, "home.html", gin.H{})
+	c.HTML(200, "index.html", gin.H{})
 }
 
 func main() {
@@ -16,10 +16,14 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 	databse.Connect()
+	databse.GetMessageBox(1);
 	router := gin.Default()
-	router.LoadHTMLGlob("templates/*")
+	routes(router)
+	router.LoadHTMLFiles("./node/build/index.html")
+	router.Static("/_app", "./node/build/_app")
 	router.Static("/static", "./static")
-	router.GET("/index", homePage)
+	router.GET("/", homePage)
 	router.Run("localhost:8090")
 }

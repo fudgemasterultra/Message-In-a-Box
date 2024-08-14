@@ -2,4 +2,4 @@
 .vscode/*
 data/
 node/node_modules/
-static/js/
+node/build/

@@ -7,3 +7,9 @@ type MessageBox struct {
 	Message string
 	Box     int64
 }
+
+
+type SearchResult[T any] struct {
+	Response *T
+	Found bool
+}
